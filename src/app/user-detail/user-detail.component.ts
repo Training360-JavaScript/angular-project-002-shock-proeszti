@@ -15,7 +15,11 @@ export class UserDetailComponent implements OnInit {
    * @default új User
    */
   @Input() user: User = new User();
-  @Output() delUser: EventEmitter<User> = new EventEmitter();
+
+  @Output() userEmitter: EventEmitter<User> = new EventEmitter();
+
+  @Output() onKutya: EventEmitter<string> = new EventEmitter();
+
 
   constructor() { }
 
@@ -31,7 +35,11 @@ export class UserDetailComponent implements OnInit {
    * @returns {void}
    */
   onDelete(user: User): void {
-    this.delUser.emit(user);
+    this.userEmitter.emit(user);
+  }
+
+  onDogButtonClicked() {
+    this.onKutya.emit("buksi");
   }
 
 }

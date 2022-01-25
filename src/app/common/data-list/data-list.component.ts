@@ -8,9 +8,9 @@ import { User } from 'src/app/model/user';
 })
 export class DataListComponent implements OnInit {
   @Input() dataList: User[] = [];
-  @Output() selectClick: EventEmitter<boolean>;
-  @Output() updateClick!: EventEmitter<boolean>;
-  @Output() deleteClick!: EventEmitter<boolean>;
+  @Output() selectClick: EventEmitter<User> = new EventEmitter();
+  @Output() updateClick: EventEmitter<User> = new EventEmitter();
+  @Output() deleteClick: EventEmitter<User> = new EventEmitter();
   clicked: any;
 
 
@@ -18,17 +18,14 @@ export class DataListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSelectClick(): void {
-    this.selectClick(dataRow);
+  onSelectClick(dataRow): void {
+    new this.selectClick();
   }
-  onUpdateClick(): void {
-    this.updateClick(dataRow);
+  onUpdateClick(dataRow): void {
+    new this.updateClick();
   }
-  onDeleteClick(): void {
-    this.deleteClick(dataRow);
+  onDeleteClick(dataRow): void {
+    new this.deleteClick();
   }
-}
-function dataRow(dataRow: any) {
-  throw new Error('Function not implemented.');
 }
 

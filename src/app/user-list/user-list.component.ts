@@ -39,6 +39,8 @@ export class UserListComponent implements OnInit {
     this.currentUser = new User();
   }
 
+  megetetem(dogname: string) { }
+
   /**
    * FELADAT!
    * Az oszlop feljécekre való kattintás kezelése.

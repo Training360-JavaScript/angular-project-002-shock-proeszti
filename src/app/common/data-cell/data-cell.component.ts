@@ -1,5 +1,5 @@
 import { User } from './../../model/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-data-cell',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-cell.component.scss']
 })
 export class DataCellComponent implements OnInit {
-  @Input() data: User = new User;
+  @Input() data: User = new User();
   @Input() key: string = "";
   constructor() { }
 

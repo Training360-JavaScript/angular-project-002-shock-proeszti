@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-data-row',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-row.component.scss']
 })
 export class DataRowComponent implements OnInit {
-  @Input() dataRow: User = new User;
-  @Output() selectClick: EventEmitter<boolean>;
-  @Output() updateClick: EventEmitter<boolean>;
-  @Output() deleteClick: EventEmitter<boolean>;
+  @Input() dataRow: User = new User();
+  @Input() row: User = new User();
+  @Output() selectClick: EventEmitter<boolean> = new EventEmitter();
+  @Output() updateClick: EventEmitter<boolean> = new EventEmitter();
+  @Output() deleteClick: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
